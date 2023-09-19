@@ -1,6 +1,6 @@
 # Hannes Audio Renaming Tool
 
-![Demo](../Images/YourGifFileName.gif)
+![Demo](../Images/audio_tool.gif)
 
 ## Description
 
