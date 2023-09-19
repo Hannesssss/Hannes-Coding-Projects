@@ -25,15 +25,15 @@ Follow these instructions to get started with the Hannes Audio Renaming Tool:
 
 ### Initial Menu:
 
-1. **Select folder to rename files**: Choose a folder containing .wav and .mp3 files for renaming.
-2. **Exit**: Quit the program.
+1. **Select folder to rename files**: --Choose a folder containing .wav and .mp3 files for renaming.
+2. **Exit**: --Quit the program.
 
 ### Menu:
 
-1. **Re-run with a different naming pattern**: Modify the naming pattern for renaming files.
-2. **Select a new folder and rename files**: Choose a different folder and naming pattern.
-3. **Revert changes**: Restore the original file names for all renamed files.
-4. **Exit**: Quit the program.
+1. **Re-run with a different naming pattern**: --Modify the naming pattern for renaming files.
+2. **Select a new folder and rename files**: --Choose a different folder and naming pattern.
+3. **Revert changes**: --Restore the original file names for all renamed files.
+4. **Exit**: --Quit the program.
 
 ## License
 
