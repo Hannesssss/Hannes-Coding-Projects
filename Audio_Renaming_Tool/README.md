@@ -1,5 +1,7 @@
 # Hannes Audio Renaming Tool
 
+![Demo](../Images/YourGifFileName.gif)
+
 ## Description
 
 The Hannes Audio Renaming Tool is a user-friendly utility for renaming .wav and .mp3 files in a specified folder using a custom naming pattern. This tool simplifies the process of organizing and managing audio files.
