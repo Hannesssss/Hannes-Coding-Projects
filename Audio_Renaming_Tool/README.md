@@ -1,7 +1,5 @@
 # Hannes Audio Renaming Tool
 
-![GitHub](https://img.shields.io/github/license/YourUsername/Hannes-Audio-Renaming-Tool)
-
 ## Description
 
 The Hannes Audio Renaming Tool is a Python script that allows you to easily rename .wav and .mp3 files in a specified folder using a custom naming pattern. This tool is designed to help you organize and manage your audio files more effectively.
