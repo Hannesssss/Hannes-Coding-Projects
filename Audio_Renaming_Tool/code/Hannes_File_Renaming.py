@@ -1,7 +1,7 @@
 import os
 
 # Function to rename .wav and .mp3 files in a specified folder based on user input
-def rename_audio_files_interactively(folder_path, renaming_pattern, revert_dict=None):
+def rename_audio_files_interactively(folder_path, renaming_pattern, revert_dict):
     # Check if the specified folder exists
     if not os.path.exists(folder_path):
         print(f"The folder '{folder_path}' does not exist.")
@@ -54,9 +54,8 @@ def rename_audio_files_interactively(folder_path, renaming_pattern, revert_dict=
 
             index += 1
 
-    # If a revert dictionary is provided, update it with the renaming information
-    if revert_dict is not None:
-        revert_dict.update(original_to_renamed)
+    # Update the revert dictionary with the renaming information
+    revert_dict.update(original_to_renamed)
 
 # Function to display the initial menu and get the user's choice
 def initial_menu():
@@ -78,6 +77,7 @@ def secondary_menu():
 # Main program loop
 folder_path = ""
 renaming_pattern = ""
+revert_dict = {}
 
 while True:
     initial_choice = initial_menu()
@@ -108,7 +108,7 @@ while True:
                 print("Renaming operation canceled.")
                 continue
 
-        rename_audio_files_interactively(folder_path, renaming_pattern)
+        rename_audio_files_interactively(folder_path, renaming_pattern, revert_dict)
 
         # After renaming is done, display the secondary menu
         while True:
@@ -117,18 +117,23 @@ while True:
             if secondary_choice == '1':
                 # User wants to re-run with a different naming pattern
                 renaming_pattern = input("Enter a new renaming pattern: ")
-                rename_audio_files_interactively(folder_path, renaming_pattern)  # Call the function again with the new pattern.
+                rename_audio_files_interactively(folder_path, renaming_pattern, revert_dict)  # Call the function again with the new pattern.
                 continue
             elif secondary_choice == '2':
                 # User wants to select a new folder and rename files
                 folder_path = input("Enter a new folder path: ")
                 renaming_pattern = input("Enter a new renaming pattern: ")
-                rename_audio_files_interactively(folder_path, renaming_pattern)  # Call the function again with the new folder and pattern.
+                rename_audio_files_interactively(folder_path, renaming_pattern, revert_dict)  # Call the function again with the new folder and pattern.
                 break
             elif secondary_choice == '3':
                 # User wants to revert changes
-                revert_dict = {}
-                rename_audio_files_interactively(folder_path, renaming_pattern, revert_dict)
+                for original_name, new_name in revert_dict.items():
+                    # Revert the changes by renaming back to the original name
+                    old_path = os.path.join(folder_path, new_name)
+                    new_path = os.path.join(folder_path, original_name)
+                    os.rename(old_path, new_path)
+                    print(f"Reverted '{new_name}' to '{original_name}'")
+                revert_dict.clear()  # Clear the revert dictionary
                 print("Reverted changes.")
                 continue
             elif secondary_choice == '4':
@@ -142,4 +147,3 @@ while True:
         break
     else:
         print("Invalid choice. Please enter 1 or 2 in the initial menu.")
-1
